@@ -3,174 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silver Moon Alaska Cruise Guide</title>
+    <title>Silver Moon Alaska Cruise Daily Guide</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
-        @page {
-            margin: 0.5in;
-            size: letter;
-        }
-
         :root {
             --primary-color: #1B365D;
             --accent-color: #B8860B;
+            --background-color: #FFFFFF;
             --text-color: #000000;
             --border-color: #1B365D;
-            --background-light: #F8F7F3;
         }
 
         body {
             font-family: Arial, sans-serif;
             line-height: 1.8;
             margin: 0;
-            padding: 20px;
-            background: white;
+            padding: 0;
+            background: var(--background-color);
             color: var(--text-color);
-            font-size: 14pt;
+            font-size: 18px;
         }
 
         .header {
             background: var(--primary-color);
             color: white;
-            padding: 30px 20px;
+            padding: 2rem 1rem;
             text-align: center;
-            margin-bottom: 30px;
         }
 
         .header h1 {
-            font-size: 24pt;
+            font-size: 28px;
             margin: 0;
             padding: 10px 0;
         }
 
         .header p {
-            font-size: 16pt;
+            font-size: 22px;
             margin: 5px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
         }
 
         .day-section {
             background: white;
-            margin-bottom: 40px;
+            margin-bottom: 2rem;
             border: 2px solid var(--border-color);
             border-radius: 8px;
-            page-break-inside: avoid;
         }
 
-        .day-title {
+        .day-header {
             background: var(--primary-color);
             color: white;
-            padding: 20px;
-            font-size: 18pt;
-            border-top-left-radius: 6px;
-            border-top-right-radius: 6px;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 22px;
         }
 
         .day-content {
-            padding: 20px;
+            padding: 2rem;
+            display: none;
+            font-size: 18px;
         }
 
-        .activity-block {
-            margin-bottom: 30px;
-            border-bottom: 1px solid #E0E0E0;
-            padding-bottom: 20px;
+        .day-content.active {
+            display: block;
         }
 
-        .time-label {
+        .activity-card {
+            border-bottom: 2px solid var(--border-color);
+            padding: 1.5rem 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .time {
             color: var(--primary-color);
             font-weight: bold;
-            font-size: 16pt;
+            font-size: 20px;
             display: block;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
 
-        .note-box {
-            background: var(--background-light);
+        .silversea-note {
+            background: #F8F7F3;
             border-left: 5px solid var(--accent-color);
-            padding: 20px;
-            margin: 20px 0;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 18px;
         }
 
-        .excursion-box {
+        .included-excursion {
             background: #F0F4F8;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
             border-left: 5px solid var(--primary-color);
         }
 
-        .dining-box {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
+        .dining-venue {
+            background: #FFF;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
             border: 2px solid var(--accent-color);
         }
 
-        .important-box {
+        .important-note {
             background: #FFF4E6;
             border-left: 5px solid #FF9800;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
         }
 
-        .kim-box {
+        .kim-recommends {
             background: #FFF3E0;
             border-left: 5px solid #FF9800;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 18px;
         }
 
         h2, h3, h4 {
             color: var(--primary-color);
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
 
-        h2 { font-size: 18pt; }
-        h3 { font-size: 16pt; }
-        h4 { font-size: 14pt; }
+        h3 {
+            font-size: 22px;
+        }
+
+        h4 {
+            font-size: 20px;
+        }
 
         ul {
-            padding-left: 20px;
-            margin: 15px 0;
+            padding-left: 1.5rem;
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
             line-height: 1.6;
         }
 
-        p {
-            margin: 15px 0;
-        }
-
         .icon {
-            margin-right: 10px;
+            color: var(--accent-color);
+            margin-right: 0.8rem;
+            font-size: 20px;
         }
 
-        /* Print-specific styles */
+        a {
+            color: #0066CC;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        /* Print styles */
         @media print {
+            .day-content {
+                display: block !important;
+            }
+            
+            .day-header {
+                break-after: avoid;
+            }
+            
+            .day-section {
+                break-inside: avoid;
+            }
+            
             body {
                 font-size: 12pt;
             }
-
+            
             .header {
-                background-color: var(--primary-color) !important;
-                color: white !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .day-title {
-                background-color: var(--primary-color) !important;
-                color: white !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .note-box, .excursion-box, .dining-box, .important-box, .kim-box {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .day-section {
-                page-break-inside: avoid;
+                background: white !important;
+                color: black !important;
+                border-bottom: 2px solid var(--primary-color);
             }
         }
     </style>
@@ -182,56 +194,497 @@
         <p>May 6-16, 2025</p>
     </div>
 
-    <div class="day-section">
-        <div class="day-title">
-            Day 1 - Tuesday, May 6: Arrival in Vancouver
+    <div class="container">
+        <div class="day-section">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h2>Day 1 - Tuesday, May 6: Arrival in Vancouver</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="day-content">
+                <div class="activity-card">
+                    <span class="time">12:10 PM: Departure from Mobile</span>
+                    <p>Delta Air Lines Flight DL5498</p>
+                    <ul>
+                        <li>First Class service</li>
+                        <li>Arrival in Atlanta: 2:32 PM</li>
+                    </ul>
+                </div>
+
+                <div class="activity-card">
+                    <span class="time">6:20 PM: Departure from Atlanta</span>
+                    <p>Delta Air Lines Flight DL6919</p>
+                    <ul>
+                        <li>First Class service</li>
+                        <li>Arrival in Vancouver: 8:52 PM</li>
+                    </ul>
+                </div>
+
+                <div class="important-note">
+                    <h4><i class="fas fa-info-circle"></i> Transfer Information</h4>
+                    <p>Your Silversea private executive transfer will meet you at baggage claim.</p>
+                    <ul>
+                        <li>Look for a sign with your name</li>
+                        <li>Driver will assist with luggage</li>
+                        <li>Direct transfer to Pan Pacific Vancouver</li>
+                    </ul>
+                </div>
+
+                <div class="activity-card">
+                    <span class="time">9:30 PM: Hotel Check-in</span>
+                    <p>Pan Pacific Vancouver</p>
+                    <ul>
+                        <li>Room Type: Deluxe City View</li>
+                        <li>Address: 300-999 Canada Place</li>
+                        <li>24-hour room service available</li>
+                    </ul>
+                </div>
+
+                <div class="kim-recommends">
+                    <h4><i class="fas fa-star"></i> Kim Recommends:</h4>
+                    <p>After your long travel day, consider ordering from the hotel's night menu. The Canadian cheese plate and house-made soup are perfect light options that showcase local flavors.</p>
+                </div>
+            </div>
         </div>
-        <div class="day-content">
-            <div class="activity-block">
-                <span class="time-label">12:10 PM: Departure from Mobile</span>
-                <p>Delta Air Lines Flight DL5498</p>
-                <ul>
-                    <li>First Class service</li>
-                    <li>Arrival in Atlanta: 2:32 PM</li>
-                </ul>
-            </div>
 
-            <div class="activity-block">
-                <span class="time-label">6:20 PM: Departure from Atlanta</span>
-                <p>Delta Air Lines Flight DL6919</p>
-                <ul>
-                    <li>First Class service</li>
-                    <li>Arrival in Vancouver: 8:52 PM</li>
-                </ul>
+        <div class="day-section">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h2>Day 2 - Wednesday, May 7: Vancouver</h2>
+                <i class="fas fa-chevron-down"></i>
             </div>
+            <div class="day-content">
+                <div class="silversea-note">
+                    <h4><i class="fas fa-sun"></i> Morning Activity Options</h4>
+                    <ul>
+                        <li>Breakfast at Oceans 999 Restaurant (in hotel)</li>
+                        <li>Walk the Vancouver Seawall (starts outside hotel)</li>
+                        <li>Visit Vancouver Lookout for city views</li>
+                    </ul>
+                </div>
 
-            <div class="important-box">
-                <h4>Transfer Information</h4>
-                <p>Your Silversea private executive transfer will meet you at baggage claim.</p>
-                <ul>
-                    <li>Look for a sign with your name</li>
-                    <li>Driver will assist with luggage</li>
-                    <li>Direct transfer to Pan Pacific Vancouver</li>
-                </ul>
+                <div class="dining-venue">
+                    <h4><i class="fas fa-utensils"></i> Lunch Suggestion</h4>
+                    <p>Granville Island Public Market</p>
+                    <ul>
+                        <li>Easy 10-minute taxi ride from hotel</li>
+                        <li>Multiple dining options in one location</li>
+                        <li>Local artisan shops and galleries</li>
+                        <li>Waterfront views</li>
+                    </ul>
+                </div>
+
+                <div class="activity-card">
+                    <span class="time">Afternoon Suggestions</span>
+                    <ul>
+                        <li>Stanley Park Gardens</li>
+                        <li>Vancouver Aquarium</li>
+                        <li>Robson Street Shopping</li>
+                    </ul>
+                </div>
+
+                <div class="kim-recommends">
+                    <h4><i class="fas fa-star"></i> Kim's Local Secret:</h4>
+                    <p>Visit the hidden Nitobe Memorial Garden at UBC. This authentic Japanese garden is one of the most peaceful spots in Vancouver, perfect for adjusting to the time change. Best visited between 2-4 PM when tour groups are elsewhere.</p>
+                    <ul>
+                        <li>Taxi ride: approximately 20 minutes from hotel</li>
+                        <li>Admission: $10 seniors</li>
+                        <li>Relaxing tea house on site</li>
+                    </ul>
+                </div>
+
+                <div class="dining-venue">
+                    <h4><i class="fas fa-utensils"></i> Evening Dining</h4>
+                    <p>Five Sails Restaurant (in Pan Pacific Hotel)</p>
+                    <ul>
+                        <li>Fine dining with harbor views</li>
+                        <li>Known for fresh seafood</li>
+                        <li>Smart casual dress</li>
+                        <li>Reservation recommended through concierge</li>
+                    </ul>
+                </div>
             </div>
+        </div>
 
-            <div class="activity-block">
-                <span class="time-label">9:30 PM: Hotel Check-in</span>
-                <p>Pan Pacific Vancouver</p>
-                <ul>
-                    <li>Room Type: Deluxe City View</li>
-                    <li>Address: 300-999 Canada Place</li>
-                    <li>24-hour room service available</li>
-                </ul>
+        <div class="day-section">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h2>Day 3 - Thursday, May 8: Embarkation Day</h2>
+                <i class="fas fa-chevron-down"></i>
             </div>
+            <div class="day-content">
+                <div class="activity-card">
+                    <span class="time">Morning</span>
+                    <p>Leisure time - Hotel late checkout available</p>
+                </div>
 
-            <div class="kim-box">
-                <h4>Kim Recommends:</h4>
-                <p>After your long travel day, consider ordering from the hotel's night menu. The Canadian cheese plate and house-made soup are perfect light options that showcase local flavors.</p>
+                <div class="kim-recommends">
+                    <h4><i class="fas fa-star"></i> Kim's Pre-Cruise Tip:</h4>
+                    <p>Visit Thierry Cafe (1059 Alberni St) for Vancouver's best croissants and coffee. It's a perfect light breakfast before embarking, and they pack beautiful macarons to take aboard as a treat.</p>
+                </div>
+
+                <div class="important-note">
+                    <h4><i class="fas fa-info-circle"></i> Embarkation Information</h4>
+                    <ul>
+                        <li>Time: Board between 3:00 PM - 6:00 PM</li>
+                        <li>Location: Canada Place Cruise Terminal</li>
+                        <li>Short walk from Pan Pacific Hotel</li>
+                    </ul>
+                    <p><strong>Required Documents:</strong></p>
+                    <ul>
+                        <li>Passport</li>
+                        <li>Silversea boarding documents</li>
+                        <li>Completed health questionnaire</li>
+                    </ul>
+                </div>
+
+                <div class="silversea-note">
+                    <h4><i class="fas fa-ship"></i> Evening on Board</h4>
+                    <ul>
+                        <li>7:00 PM: Ship departure</li>
+                        <li>7:30 PM: Welcome reception in Dolce Vita lounge</li>
+                        <li>8:00 PM: Dinner venues open</li>
+                    </ul>
+                </div>
+
+                <div class="dining-venue">
+                    <h4><i class="fas fa-utensils"></i> First Night Dining Options</h4>
+                    <ul>
+                        <li>Atlantide - Classic seafood and steaks</li>
+                        <li>La Terrazza - Italian cuisine</li>
+                        <li>The Grill - Outdoor dining</li>
+                    </ul>
+                    <p>No reservations needed first night - explore and choose!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h2>Day 4 - Friday, May 9: Inside Passage Cruising</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="day-content">
+                <div class="activity-card">
+                    <span class="time">Morning Activities</span>
+                    <ul>
+                        <li>7:00 AM - 10:00 AM: Breakfast available</li>
+                        <li>9:30 AM: Alaska destination presentation</li>
+                        <li>11:00 AM: Galley tour</li>
+                    </ul>
+                </div>
+
+                <div class="important-note">
+                    <h4><i class="fas fa-binoculars"></i> Wildlife Viewing Tips</h4>
+                    <ul>
+                        <li>Best viewing locations:
+                            <ul>
+                                <li>Observation Lounge - Deck 11 forward</li>
+                                <li>Pool Deck - Panoramic views</li>
+                                <li>Your private veranda</li>
+                            </ul>
+                        </li>
+                        <li>Binoculars available from your butler</li>
+                        <li>Naturalist announcements throughout day</li>
+                    </ul>
+                </div>
+
+                <div class="kim-recommends">
+                    <h4><i class="fas fa-star"></i> Kim's Inside Passage Tips:</h4>
+                    <p>Request afternoon tea service on your veranda between 2:00-4:00 PM. This is prime time for whale watching as you cruise through Queen Charlotte Sound, and you can enjoy it from your private space.</p>
+                </div>
+
+                <div class="silversea-note">
+                    <h4><i class="fas fa-glass-cheers"></i> Evening Programme</h4>
+                    <ul>
+                        <li>6:00 PM: Captain's Welcome Reception</li>
+                        <li>7:00 PM: First formal dinner of the cruise</li>
+                        <li>9:30 PM: Musical performance in Venetian Lounge</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h2>Day 5 - Saturday, May 10: Ketchikan</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="day-content">
+                <div class="activity-card">
+                    <span class="time">8:00 AM - 4:00 PM: In Port</span>
+                </div>
+
+                <div class="included-excursion">
+                    <h4><i class="fas fa-map-marked-alt"></i> Your Confirmed Shore Excursion</h4>
+                    <p><strong>Saxman Native Village and Ketchikan City Tour</strong></p>
+                    <ul>
+                        <li>Meeting Time: 9:00 AM</li>
+                        <li>Meeting Point: Ship's Lounge</li>
+                        <li>Duration: 4 hours</li>
+                        <li>Booking Reference: 3073393</li>
+                        <li>Activity Level: Easy to moderate walking</li>
+                    </ul>
+                </div>
+
+                <div class="kim-recommends">
+                    <h4><i class="fas fa-star"></i> Kim's Local Tip:</h4>
+                    <p>After your tour, visit the historic Creek Street area. The Salmon Landing Market has comfortable seating with harbor views - perfect for a rest with local coffee and watching seaplanes land.</p>
+                </div>
+
+                <div class="silversea-note">
+                    <h4><i class="fas fa-moon"></i> Evening Schedule</h4>
+                    <ul>
+                        <li>4:00 PM: All aboard</li>
+                        <li>4:30 PM: Scenic sailing past Misty Fjords</li>
+                        <li>6:30 PM: Pre-dinner classical music in Dolce Vita</li>
+                        <li>7:00 PM onwards: Open seating dinner</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h2>Day 6 - Sunday, May 11: Juneau</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="day-content">
+                <div class="activity-card">
+                    <span class="time">10:30 AM - 10:00 PM: In Port</span>
+                </div>
+
+                <div class="included-excursion">
+                    <h4><i class="fas fa-map-marked-alt"></i> Your Confirmed Shore Excursion</h4>
+                    <p><strong>Exclusive Juneau City and Mendenhall Glacier Tour</strong></p>
+                    <ul>
+                        <li>Meeting Time: 11:30 AM</li>
+                        <li>Meeting Point: Ship's Lounge</li>
+                        <li>Duration: 4.5 hours</li>
+                        <li>Booking Reference: 3073392</li>
+                        <li>Activity Level: Easy</li>
+                        <li>Warm clothing and comfortable shoes recommended</li>
+                    </ul>
+                </div>
+
+                <div class="kim-recommends">
+                    <h4><i class="fas fa-star"></i> Kim's Evening Suggestion:</h4>
+                    <p>With the late stay in port, enjoy dinner at Tracy's King Crab Shack. It's casual but serves the best crab in Alaska. A 5-minute walk from the ship, and they have heated outdoor seating with harbor views. Your butler can assist with directions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h2>Day 7 - Monday, May 12: Skagway</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="day-content">
+                <div class="activity-card">
+                    <span class="time">7:00 AM - 5:00 PM: In Port</span>
+                </div>
+
+                <div class="included-excursion">
+                    <h4><i class="fas fa-map-marked-alt"></i> Your Confirmed Shore Excursion</h4>
+                    <p><strong>Skagway City and White Pass Summit</strong></p>
+                    <ul>
+                        <li>Meeting Time: 8:00 AM</li>
+                        <li>Meeting Point: Ship's Lounge</li>
+                        <li>Duration: 3.5 hours</li>
+                        <li>Booking Reference: 3073394</li>
+                        <li>Activity Level: Easy</li>
+                        <li>Bring your passport - required for this tour</li>
+                    </ul>
+                </div>
+
+                <div class="silversea-note">
+                    <h4><i class="fas fa-moon"></i> Evening Highlights</h4>
+                    <ul>
+                        <li>5:30 PM: Sail away from Skagway</li>
+                        <li>7:30 PM: Alaskan Seafood Gala in Atlantide</li>
+                        <li>9:30 PM: Live Music in Dolce Vita</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h2>Day 8 - Tuesday, May 13: Sitka</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="day-content">
+                <!-- Previous Sitka content with senior-friendly format -->
+                <div class="activity-card">
+                    <span class="time">9:00 AM - 4:00 PM: In Port</span>
+                </div>
+
+                <div class="silversea-note">
+                    <h4><i class="fas fa-walking"></i> Cultural Exploration Route</h4>
+                    <p><strong>Easy Walking Tour:</strong></p>
+                    <ul>
+                        <li>St. Michael's Cathedral - Historic Russian church</li>
+                        <li>Russian Bishop's House - National Historic Landmark</li>
+                        <li>Sitka Cultural Center - Native performances</li>
+                    </ul>
+                    <p>All sites within 15 minutes of tender pier</p>
+                </div>
+
+                <div class="kim-recommends">
+                    <h4><i class="fas fa-gem"></i> Kim's Hidden Gem:</h4>
+                    <p><strong>The Russian Cemetery Nature Walk</strong></p>
+                    <ul>
+                        <li>Beautiful waterfall photo opportunity</li>
+                        <li>Historic Russian Orthodox crosses</li>
+                        <li>Peaceful wooded setting</li>
+                        <li>5-minute walk from Cathedral</li>
+                        <li>Best time: 10:30 AM for photos</li>
+                    </ul>
+                </div>
+
+                <div class="dining-venue">
+                    <h4><i class="fas fa-utensils"></i> Evening Dining</h4>
+                    <p>Special Kaiseki Restaurant Experience</p>
+                    <ul>
+                        <li>Japanese fine dining</li>
+                        <li>Advance reservation required</li>
+                        <li>Smart casual attire</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h2>Day 9 - Wednesday, May 14: At Sea</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="day-content">
+                <div class="silversea-note">
+                    <h4><i class="fas fa-calendar-day"></i> Daily Programme</h4>
+                    <ul>
+                        <li>10:00 AM: Culinary Demonstration</li>
+                        <li>2:00 PM: Bridge Tour</li>
+                        <li>4:00 PM: Afternoon Tea Service</li>
+                        <li>7:30 PM: Farewell Show</li>
+                    </ul>
+                </div>
+
+                <div class="important-note">
+                    <h4><i class="fas fa-suitcase"></i> Packing Reminder</h4>
+                    <p>Suitcases should be outside your suite by 11:00 PM tonight</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h2>Day 10 - Thursday, May 15: Seward & Anchorage</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="day-content">
+                <div class="activity-card">
+                    <span class="time">Morning: Disembarkation in Seward</span>
+                    <div class="important-note">
+                        <h4><i class="fas fa-info-circle"></i> Disembarkation Information</h4>
+                        <ul>
+                            <li>Breakfast available from 6:00 AM</li>
+                            <li>Butler assistance with departure arrangements</li>
+                            <li>Keep travel documents handy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <span class="time">Transfer to Anchorage</span>
+                    <p>Scenic transfer through Kenai Peninsula</p>
+                    <div class="silversea-note">
+                        <h4>En Route Highlights</h4>
+                        <ul>
+                            <li>Turnagain Arm scenic views</li>
+                            <li>Chugach National Forest</li>
+                            <li>Photo stops at scenic points</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <span class="time">Afternoon: Anchorage</span>
+                    <p>Check-in: Anchorage Marriott Downtown</p>
+                    <div class="dining-venue">
+                        <h4><i class="fas fa-utensils"></i> Evening Dining</h4>
+                        <p>Simon & Seafort's</p>
+                        <ul>
+                            <li>Celebrated Anchorage restaurant</li>
+                            <li>Panoramic views</li>
+                            <li>10-minute walk from hotel</li>
+                            <li>Hotel concierge can assist with reservations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h2>Day 11 - Friday, May 16: Departure</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="day-content">
+                <div class="activity-card">
+                    <span class="time">Early Morning Departure</span>
+                    <div class="important-note">
+                        <h4><i class="fas fa-plane"></i> Flight Schedule</h4>
+                        <ul>
+                            <li>6:10 AM: Depart Anchorage (DL447)</li>
+                            <li>2:44 PM: Arrive Minneapolis</li>
+                            <li>4:35 PM: Depart Minneapolis (DL1028)</li>
+                            <li>8:10 PM: Arrive Atlanta</li>
+                            <li>10:40 PM: Depart Atlanta (DL5467)</li>
+                            <li>10:56 PM: Arrive Mobile</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="silversea-note">
+                    <h4><i class="fas fa-car"></i> Transfer Information</h4>
+                    <p>Blacklane executive car service arranged:</p>
+                    <ul>
+                        <li>Pre-dawn pickup at hotel</li>
+                        <li>Assistance with luggage</li>
+                        <li>Final transfer home from Mobile airport</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
-    [Continue with remaining days following same format...]
+    <script>
+        function toggleDay(element) {
+            const content = element.nextElementSibling;
+            if (content) {
+                content.classList.toggle('active');
+            }
+            
+            const icon = element.querySelector('.fas');
+            if (icon) {
+                if (content.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            }
+        }
+
+        // Open first day by default
+        const firstContent = document.querySelector('.day-content');
+        if (firstContent) {
+            firstContent.classList.add('active');
+            const firstIcon = document.querySelector('.day-header .fas');
+            if (firstIcon) {
+                firstIcon.classList.remove('fa-chevron-down');
+                firstIcon.classList.add('fa-chevron-up');
+            }
+        }
+    </script>
 </body>
 </html>
