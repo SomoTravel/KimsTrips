@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Your European Adventure</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #1557b0;
+            --text: #202124;
+            --border: #dadce0;
+            --background: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.5;
+            color: var(--text);
+            background: var(--background);
+        }
+        
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .trip-overview {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        nav {
+            background: white;
+            padding: 0.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .nav-buttons {
+            display: flex;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            gap: 0.5rem;
+            padding: 0.5rem;
+        }
+        
+        .nav-buttons::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            touch-action: manipulation;
+        }
+        
+        .nav-button:active {
+            background: var(--primary-dark);
+        }
+        
+        .collapsible {
+            margin: 0.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .collapse-header {
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .collapse-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .collapse-content.active {
+            max-height: 2000px;
+        }
+        
+        .content-inner {
+            padding: 1rem;
+        }
+        
+        .alert {
+            background: #fff3e0;
+            border-left: 4px solid #fb8c00;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        .tour {
+            background: #f5f5f5;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .schedule {
+            margin: 0.5rem 0;
+        }
+        
+        .hotel {
+            background: #e3f2fd;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .gem {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        ul {
+            padding-left: 1.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+            padding: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="font-size: 1.5rem;">European Adventure</h1>
+        <p>London • Paris • Rome</p>
+        <p>May 23 - June 1, 2025</p>
+        <p><strong>$4,095.95</strong> per person</p>
+        <div class="trip-overview">
+            <p>Experience the best of Europe in 10 memorable days: early access to London's Crown Jewels, skip-the-line tours of Paris's Louvre and Rome's Vatican Museums, and a scenic high-speed train journey to Pompeii. Stay in prime locations with expert-guided tours and discover hidden local gems.</p>
+        </div>
+    </header>
+
+    <nav class="sticky-nav">
+        <div class="nav-buttons">
+            <button class="nav-button" onclick="scrollToSection('important')">Important Info</button>
+            <button class="nav-button" onclick="scrollToSection('london')">London</button>
+            <button class="nav-button" onclick="scrollToSection('paris')">Paris</button>
+            <button class="nav-button" onclick="scrollToSection('rome')">Rome</button>
+            <button class="nav-button" onclick="scrollToSection('pompeii')">Pompeii</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Important Information -->
+        <div class="collapsible" id="important">
+            <div class="collapse-header" onclick="toggleCollapse(this)">
+                <h2>⚠️ Important Information</h2>
+                <span class="toggle">▼</span>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="alert">
+                        <h3>Required Actions</h3>
+                        <ul>
+                            <li>UK ETA ($10 pp) - Apply 30+ days before</li>
+                            <li>EU ETIAS ($7 pp) - Apply 30+ days before</li>
+                            <li>Book Eurostar London-Paris transfer</li>
+                        </ul>
+                    </div>
+                    <div class="alert">
+                        <h3>Restaurant Reservations</h3>
+                        <ul>
+                            <li>Rules (London) - 3 weeks ahead</li>
+                            <li>Le Train Bleu (Paris) - 1 month ahead</li>
+                            <li>Roscioli (Rome) - 2 weeks ahead</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- London Section -->
+        <div class="collapsible" id="london">
+            <div class="collapse-header" onclick="toggleCollapse(this)">
+                <h2>🇬🇧 London (May 24-27)</h2>
+                <span class="toggle">▼</span>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="hotel">
+                        <h3>🏨 Hilton London Metropole</h3>
+                        <p>May 24-27 | Apartment, 1 Bedroom<br>
+                        <a href="https://www.hilton.com/en/hotels/lonmetw-hilton-london-metropole/">Hotel Website</a></p>
+                    </div>
+
+                    <div class="tour">
+                        <h4>Day 1 (May 24)</h4>
+                        <ul>
+                            <li>06:55 AM - Arrive Heathrow</li>
+                            <li>2:00 PM - <a href="https://www.viator.com/tours/London/London-Sightseeing-Taxi-Tour/d737-465595P1">Private Black Cab Tour</a> ($121 pp)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tour">
+                        <h4>Day 2 (May 25)</h4>
+                        <ul>
+                            <li>8:30 AM - <a href="https://www.viator.com/tours/London/Early-Access-Crown-Jewels-Complete-Tour-of-Tower-of-London-with-Opening-Ceremony/d737-62043P10">Tower of London Early Access</a> ($120 pp)</li>
+                            <li>Afternoon - Thames River Cruise (included)</li>
+                        </ul>
+                    </div>
+
+                    <div class="gem">
+                        <h4>💎 Kim's Hidden Gem: Borough Market</h4>
+                        <p>London's oldest food market - perfect for lunch!</p>
+                        <ul>
+                            <li>Location: 8 Southwark Street</li>
+                            <li>Best after 2 PM for shorter lines</li>
+                            <li>Must-try: Neal's Yard Dairy cheese</li>
+                        </ul>
+                    </div>
+
+                    <div class="tour">
+                        <h4>Day 3 (May 26)</h4>
+                        <ul>
+                            <li>9:55 AM - <a href="https://www.viator.com/tours/London/Changing-of-the-Guard-Guided-Walking-Tour-in-London/d737-9086P1">Changing of the Guard Tour</a> ($29.45 pp)</li>
+                            <li>Afternoon - British Museum (Free)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paris Section -->
+        <div class="collapsible" id="paris">
+            <div class="collapse-header" onclick="toggleCollapse(this)">
+                <h2>🇫🇷 Paris (May 27-29)</h2>
+                <span class="toggle">▼</span>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="hotel">
+                        <h3>🏨 7 Eiffel by Malone</h3>
+                        <p>May 27-29 | Family Room<br>
+                        <a href="https://www.hotel-7eiffel-paris.com/en/">Hotel Website</a></p>
+                    </div>
+
+                    <div class="tour">
+                        <h4>Day 4 (May 27)</h4>
+                        <ul>
+                            <li>10:24 AM - Eurostar to Paris ($135 pp)</li>
+                            <li>5:00 PM - <a href="https://www.viator.com/tours/Paris/Private-Paris-Kickstart-Tour-with-a-Local/d479-24380P193">Paris Kickstart Tour</a> ($45 pp)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tour">
+                        <h4>Day 5 (May 28)</h4>
+                        <ul>
+                            <li>10:00 AM - <a href="https://www.viator.com/tours/Paris/Skip-the-line-Private-Guided-Tour-Louvre-Museum/d479-6353P7">Louvre Tour</a> ($141.68 pp)</li>
+                            <li>2:30 PM - <a href="https://www.viator.com/tours/Paris/Fashion-History-Private-Tour-in-the-Heart-of-Paris-The-Fashion-Capital/d479-21155P1">Fashion Tour</a> ($97 pp)</li>
+                        </ul>
+                    </div>
+
+                    <div class="gem">
+                        <h4>💎 Kim's Hidden Gem: CityPharma</h4>
+                        <p>Famous pharmacy for French beauty products</p>
+                        <ul>
+                            <li>20-40% off luxury brands</li>
+                            <li>Location: 26 Rue du Four</li>
+                            <li><a href="https://witwhimsy.com/what-to-buy-at-citypharma-in-paris/">Shopping Guide</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rome Section -->
+        <div class="collapsible" id="rome">
+            <div class="collapse-header" onclick="toggleCollapse(this)">
+                <h2>🇮🇹 Rome (May 29-31)</h2>
+                <span class="toggle">▼</span>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="hotel">
+                        <h3>🏨 Hotel Ariston</h3>
+                        <p>May 29-June 1 | Quadruple Room<br>
+                        <a href="https://www.hotelariston.it/en/">Hotel Website</a></p>
+                    </div>
+
+                    <div class="tour">
+                        <h4>Day 6 (May 29)</h4>
+                        <ul>
+                            <li>9:10 AM - Flight to Rome</li>
+                            <li>3:00 PM - <a href="https://www.viator.com/tours/Rome/Rome-Golf-Cart-Tour-Best-Activity-in-Rome/d511-360122P1">Golf Cart Tour</a> ($192.48 pp)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tour">
+                        <h4>Day 7 (May 30)</h4>
+                        <ul>
+                            <li>8:00 AM - <a href="https://www.viator.com/tours/Rome/Skip-the-Line-Vatican-Museums-and-Sistine-Chapel-Guided-Tour/d511-3731VATICAN">Vatican Tour</a> ($164.68 pp)</li>
+                            <li>2:00 PM - <a href="https://www.viator.com/tours/Rome/Colosseum-and-Ancient-Rome-Tour-with-Roman-Forum-and-Palatine-Hill/d511-3731COLOSSEUM">Colosseum Tour</a> ($105.86 pp)</li>
+                        </ul>
+                    </div>
+
+                    <div class="gem">
+                        <h4>💎 Kim's Hidden Gem: Trastevere</h4>
+                        <p>Perfect evening neighborhood for dinner!</p>
+                        <ul>
+                            <li>Best time: Evening for atmosphere</li>
+                            <li>Try Da Enzo al 29 for authentic cuisine</li>
+                            <li>Visit Basilica di Santa Maria at sunset</li>
+                            <li><a href="https://www.lonelyplanet.com/articles/perfect-day-itinerary-trastevere-rome">Neighborhood Guide</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pompeii Section -->
+        <div class="collapsible" id="pompeii">
+            <div class="collapse-header" onclick="toggleCollapse(this)">
+                <h2>🏛️ Pompeii Day Trip (May 31)</h2>
+                <span class="toggle">▼</span>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="tour">
+                        <h4>🚄 High-Speed Train Experience</h4>
+                        <p><a href="https://www.youtube.com/watch?v=c4v-rjvFqaM">Watch: Train Journey Guide</a></p>
+                    </div>
+
+                    <div class="schedule">
+                        <h4>Daily Schedule</h4>
+                        <ul>
+                            <li>8:00 AM - Depart Rome
+                                <ul>
+                                    <li>First-class train to Naples</li>
+                                    <li>Scenic coastal views</li>
+                                </ul>
+                            </li>
+                            <li>10:00 AM - Pompeii Tour
+                                <ul>
+                                    <li>Expert archaeologist guide</li>
+                                    <li>Ancient streets and houses</li>
+                                    <li>Famous plaster casts</li>
+                                </ul>
+                            </li>
+                            <li>1:00 PM - Neapolitan Lunch
+                                <ul>
+                                    <li>Local wine tasting</li>
+                                    <li>Traditional specialties</li>
+                                </ul>
+                            </li>
+                            <li>5:00 PM - Return to Rome</li>
+                        </ul>
+                    </div>
+
+                    <div class="tour">
+                        <h4>🎫 Tour Package</h4>
+                        <p><a href="https://www.viator.com/tours/Rome/Rome-to-Pompeii-Guided-Tour-with-Wine-and-Lunch-by-High-Speed-Train/d511-5831P90">Pompeii Archaeological Tour</a> - $229.00 pp
+                        <ul>
+                            <li>First-class train tickets</li>
+                            <li>Expert guide + lunch</li>
+                            <li>All entrance fees included</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Departure Section -->
+        <div class="collapsible">
+            <div class="collapse-header" onclick="toggleCollapse(this)">
+                <h2>✈️ Departure (June 1)</h2>
+                <span class="toggle">▼</span>
+            </div>
+            <div class="collapse-content">
+                <div class="content-inner">
+                    <div class="schedule">
+                        <h4>Return Flight Schedule</h4>
+                        <ul>
+                            <li>07:00 AM - Hotel pickup</li>
+                            <li>10:20 AM - Depart Rome (FCO)</li>
+                            <li>02:20 PM - Arrive Washington (IAD)</li>
+                            <li>05:40 PM - Depart IAD</li>
+                            <li>07:19 PM - Arrive Mobile (MOB)</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert">
+                        <h4>Final Morning Checklist</h4>
+                        <ul>
+                            <li>Pack night before</li>
+                            <li>Allow 45 mins for transfer</li>
+                            <li>Keep documents accessible</li>
+                            <li>Valuables in carry-on</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleCollapse(header) {
+            const content = header.nextElementSibling;
+            const toggle = header.querySelector('.toggle');
+            content.classList.toggle('active');
+            toggle.textContent = content.classList.contains('active') ? '▼' : '▶';
+        }
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            element.scrollIntoView({ behavior: 'smooth' });
+            const content = element.querySelector('.collapse-content');
+            if (!content.classList.contains('active')) {
+                element.querySelector('.collapse-header').click();
+            }
+        }
+
+        // Open first section by default
+        document.querySelector('.collapse-content').classList.add('active');
+    </script>
+</body>
+</html>
