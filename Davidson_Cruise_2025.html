@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver Moon Alaska Cruise Guide</title>
+    <style>
+        @page {
+            margin: 0.5in;
+            size: letter;
+        }
+
+        :root {
+            --primary-color: #1B365D;
+            --accent-color: #B8860B;
+            --text-color: #000000;
+            --border-color: #1B365D;
+            --background-light: #F8F7F3;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+            background: white;
+            color: var(--text-color);
+            font-size: 14pt;
+        }
+
+        .header {
+            background: var(--primary-color);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 24pt;
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .header p {
+            font-size: 16pt;
+            margin: 5px 0;
+        }
+
+        .day-section {
+            background: white;
+            margin-bottom: 40px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            page-break-inside: avoid;
+        }
+
+        .day-title {
+            background: var(--primary-color);
+            color: white;
+            padding: 20px;
+            font-size: 18pt;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        .day-content {
+            padding: 20px;
+        }
+
+        .activity-block {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #E0E0E0;
+            padding-bottom: 20px;
+        }
+
+        .time-label {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 16pt;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .note-box {
+            background: var(--background-light);
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .excursion-box {
+            background: #F0F4F8;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .dining-box {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid var(--accent-color);
+        }
+
+        .important-box {
+            background: #FFF4E6;
+            border-left: 5px solid #FF9800;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .kim-box {
+            background: #FFF3E0;
+            border-left: 5px solid #FF9800;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        h2, h3, h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        h2 { font-size: 18pt; }
+        h3 { font-size: 16pt; }
+        h4 { font-size: 14pt; }
+
+        ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        .icon {
+            margin-right: 10px;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+
+            .header {
+                background-color: var(--primary-color) !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .day-title {
+                background-color: var(--primary-color) !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .note-box, .excursion-box, .dining-box, .important-box, .kim-box {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .day-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SILVER MOON</h1>
+        <p>Vancouver to Seward (Anchorage, Alaska)</p>
+        <p>May 6-16, 2025</p>
+    </div>
+
+    <div class="day-section">
+        <div class="day-title">
+            Day 1 - Tuesday, May 6: Arrival in Vancouver
+        </div>
+        <div class="day-content">
+            <div class="activity-block">
+                <span class="time-label">12:10 PM: Departure from Mobile</span>
+                <p>Delta Air Lines Flight DL5498</p>
+                <ul>
+                    <li>First Class service</li>
+                    <li>Arrival in Atlanta: 2:32 PM</li>
+                </ul>
+            </div>
+
+            <div class="activity-block">
+                <span class="time-label">6:20 PM: Departure from Atlanta</span>
+                <p>Delta Air Lines Flight DL6919</p>
+                <ul>
+                    <li>First Class service</li>
+                    <li>Arrival in Vancouver: 8:52 PM</li>
+                </ul>
+            </div>
+
+            <div class="important-box">
+                <h4>Transfer Information</h4>
+                <p>Your Silversea private executive transfer will meet you at baggage claim.</p>
+                <ul>
+                    <li>Look for a sign with your name</li>
+                    <li>Driver will assist with luggage</li>
+                    <li>Direct transfer to Pan Pacific Vancouver</li>
+                </ul>
+            </div>
+
+            <div class="activity-block">
+                <span class="time-label">9:30 PM: Hotel Check-in</span>
+                <p>Pan Pacific Vancouver</p>
+                <ul>
+                    <li>Room Type: Deluxe City View</li>
+                    <li>Address: 300-999 Canada Place</li>
+                    <li>24-hour room service available</li>
+                </ul>
+            </div>
+
+            <div class="kim-box">
+                <h4>Kim Recommends:</h4>
+                <p>After your long travel day, consider ordering from the hotel's night menu. The Canadian cheese plate and house-made soup are perfect light options that showcase local flavors.</p>
+            </div>
+        </div>
+    </div>
+
+    [Continue with remaining days following same format...]
+</body>
+</html>
