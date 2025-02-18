@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ireland Adventure Mobile Guide 🍀</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 16px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            margin-bottom: 24px;
+            text-align: center;
+            padding: 16px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #047857;
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .section {
+            margin-bottom: 16px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            background: #047857;
+            color: white;
+            padding: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .section-content {
+            padding: 16px;
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        .activity {
+            margin-bottom: 16px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .hidden-gem {
+            margin-bottom: 16px;
+            padding: 16px;
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            border-radius: 8px;
+        }
+
+        .gem-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #9a3412;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .free-activities {
+            background: #eff6ff;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .price-tag {
+            display: inline-flex;
+            align-items: center;
+            background: #ecfdf5;
+            color: #047857;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-top: 8px;
+        }
+
+        ul {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        a {
+            color: #0284c7;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .activity-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+
+        .activity-description {
+            color: #4b5563;
+            margin-bottom: 8px;
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .section-header.active .arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Ireland Adventure 🍀</h1>
+            <p>Your 10-Day Journey Through the Emerald Isle</p>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Overview <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <p class="activity-description">
+                    Embark on an unforgettable 10-day journey through Ireland, blending iconic highlights with hidden gems.
+                </p>
+                <div class="activity">
+                    <div class="activity-title">Package Includes:</div>
+                    <ul>
+                        <li>9 nights premium accommodation</li>
+                        <li>Transportation (flights & rental car)</li>
+                        <li>Pre-arranged tours and experiences</li>
+                        <li>Personalized itinerary and support</li>
+                    </ul>
+                    <div class="price-tag">Base Trip Total: €6,298 (for 2 travelers)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Day 1: Dublin Arrival <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="activity">
+                    <div class="activity-title">Hard Rock Hotel Dublin</div>
+                    <div class="activity-description">Your luxury accommodation in the heart of Dublin</div>
+                    <a href="https://www.hardrockhotels.com/dublin" target="_blank">Hotel Website →</a>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">Traditional Irish House Party</div>
+                    <div class="activity-description">Authentic evening of traditional Irish music, dance, and storytelling</div>
+                    <div class="price-tag">€30 per person</div>
+                </div>
+
+                <div class="free-activities">
+                    <div class="activity-title">Free Activities:</div>
+                    <ul>
+                        <li>Trinity College area walk</li>
+                        <li>Grafton Street shopping</li>
+                        <li>St. Stephen's Green</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Day 2: Dublin Exploration <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="activity">
+                    <div class="activity-title">Trinity College & Book of Kells</div>
+                    <div class="activity-description">Visit Ireland's oldest university and see the famous Book of Kells</div>
+                    <div class="price-tag">€15 per person</div>
+                    <a href="https://www.tcd.ie/visitors/book-of-kells/" target="_blank">Book Tickets →</a>
+                </div>
+
+                <div class="hidden-gem">
+                    <div class="gem-header">
+                        💎 Kim's Hidden Gem: Queen of Tarts
+                    </div>
+                    <div class="activity-description">
+                        Best scones in Dublin! Perfect for lunch or afternoon tea. This charming bakery is a local favorite, known for its homemade pastries and warm atmosphere.
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">Dublin Castle</div>
+                    <div class="activity-description">Historic castle in the heart of Dublin</div>
+                    <div class="price-tag">€8 per person</div>
+                    <a href="https://www.dublincastle.ie" target="_blank">Castle Website →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Day 3: Game of Thrones Tour <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="activity">
+                    <div class="activity-title">Game of Thrones Filming Locations Tour</div>
+                    <div class="activity-description">Visit iconic filming locations including the Dark Hedges, Cushendun Caves, and various castles. Professional guide and transportation included.</div>
+                    <div class="price-tag">Included in package</div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">The Vintage Kitchen</div>
+                    <div class="activity-description">BYOB Restaurant - Local favorite known for excellent value</div>
+                    <a href="https://thevintagekitchen.ie" target="_blank">Restaurant Website →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Day 4: Dublin to Galway <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="activity">
+                    <div class="activity-title">Drive to Galway</div>
+                    <div class="activity-description">2.5 hours scenic drive</div>
+                </div>
+
+                <div class="hidden-gem">
+                    <div class="gem-header">
+                        💎 Kim's Hidden Gem: Clonmacnoise
+                    </div>
+                    <div class="activity-description">
+                        Ancient monastery site with remarkable Celtic crosses
+                    </div>
+                    <div class="price-tag">€8 per person</div>
+                    <a href="https://heritageireland.ie/places-to-visit/clonmacnoise/" target="_blank">Visit Website →</a>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">Jurys Inn Galway</div>
+                    <div class="activity-description">Your comfortable accommodation in Galway</div>
+                    <a href="https://www.jurysinns.com/hotels/galway" target="_blank">Hotel Website →</a>
+                </div>
+
+                <div class="free-activities">
+                    <div class="activity-title">Free Afternoon Activities:</div>
+                    <ul>
+                        <li>Galway City Museum</li>
+                        <li>Shop Street walking area</li>
+                        <li>Spanish Arch</li>
+                    </ul>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">McDonagh's</div>
+                    <div class="activity-description">Famous fish & chips - budget-friendly local institution</div>
+                    <a href="https://mcdonaghs.net" target="_blank">Restaurant Website →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Day 5: Cliffs of Moher Tour <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="activity">
+                    <div class="activity-title">Cliffs of Moher Experience</div>
+                    <div class="activity-description">Visit Ireland's most spectacular natural wonder. Tour includes stops at the Burren, Galway Bay, and charming coastal villages.</div>
+                    <div class="price-tag">Included in package</div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">The King's Head</div>
+                    <div class="activity-description">Historic pub with live music and good value pub food</div>
+                    <a href="https://www.thekingshead.ie" target="_blank">Pub Website →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Day 6: Connemara Tour <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="activity">
+                    <div class="activity-title">Connemara and Sheep Dog Experience</div>
+                    <div class="activity-description">Experience the wild beauty of Connemara National Park and witness a traditional sheep dog demonstration.</div>
+                    <div class="price-tag">Included in package (~€50 per person)</div>
+                </div>
+
+                <div class="hidden-gem">
+                    <div class="gem-header">
+                        💎 Kim's Hidden Gem: Aasleagh Falls
+                    </div>
+                    <div class="activity-description">
+                        A beautiful waterfall where the Erriff River meets Killary Harbour. Perfect for photos! This peaceful spot is often missed by tourists but offers stunning views.
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">Dela Restaurant</div>
+                    <div class="activity-description">Farm-to-table cuisine featuring local ingredients</div>
+                    <a href="https://dela.ie" target="_blank">Restaurant Website →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Day 7: Galway to Kilkenny <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="activity">
+                    <div class="activity-title">Drive to Kilkenny</div>
+                    <div class="activity-description">3 hours scenic drive</div>
+                </div>
+
+                <div class="hidden-gem">
+                    <div class="gem-header">
+                        💎 Kim's Hidden Gem: Birr Castle Gardens
+                    </div>
+                    <div class="activity-description">
+                        Historic castle with stunning gardens and the world's largest telescope from the 1840s.
+                    </div>
+                    <a href="https://birrcastle.com" target="_blank">Castle Website →</a>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">Mount Juliet Estate</div>
+                    <div class="activity-description">Luxury accommodation in Kilkenny</div>
+                    <a href="https://www.mountjuliet.ie" target="_blank">Hotel Website →</a>
+                </div>
+
+                <div class="free-activities">
+                    <div class="activity-title">Free Activities:</div>
+                    <ul>
+                        <li>Estate walking trails</li>
+                        <li>Kilkenny Castle Gardens</li>
+                    </ul>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">The Hound Restaurant</div>
+                    <div class="activity-description">Casual dining in an elegant setting at Mount Juliet Estate</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Day 8: Kilkenny Exploration <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="activity">
+                    <div class="activity-title">Kilkenny Medieval Walking Tour & Smithwick's Experience</div>
+                    <div class="activity-description">Discover Kilkenny's medieval history and visit the famous Smithwick's brewery.</div>
+                    <div class="price-tag">Included in package (~€24 per person)</div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">Medieval Mile Museum</div>
+                    <div class="price-tag">€10 per person</div>
+                    <a href="https://medievalmilemuseum.ie" target="_blank">Museum Website →</a>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">St. Canice's Cathedral</div>
+                    <div class="price-tag">€8 per person</div>
+                    <a href="https://stcanicescathedral.ie" target="_blank">Cathedral Website →</a>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">Kyteler's Inn</div>
+                    <div class="activity-description">Historic pub with traditional music and reasonable prices</div>
+                    <a href="https://kytelersinn.com" target="_blank">Pub Website →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Day 9: Kilkenny to Dublin Airport <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="activity">
+                    <div class="activity-title">Drive to Dublin Airport</div>
+                    <div class="activity-description">2 hours drive</div>
+                </div>
+
+                <div class="hidden-gem">
+                    <div class="gem-header">
+                        💎 Kim's Hidden Gem: Irish National Stud & Gardens
+                    </div>
+                    <div class="activity-description">
+                        World-famous thoroughbred horse breeding facility with beautiful Japanese Gardens.
+                    </div>
+                    <a href="https://irishnationalstud.ie" target="_blank">Visit Website →</a>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">Carlton Hotel Dublin Airport</div>
+                    <div class="activity-description">Convenient airport accommodation</div>
+                    <a href="https://www.carltondublinairport.com" target="_blank">Hotel Website →</a>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">Evening Options</div>
+                    <ul>
+                        <li>Hotel restaurant</li>
+                        <li>Room service available</li>
+                        <li>Several restaurants within walking distance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Day 10: Departure <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="activity">
+                    <div class="activity-title">Departure Details</div>
+                    <ul>
+                        <li>Complimentary airport shuttle</li>
+                        <li>Departure flight (time TBD)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                Important Information <span class="arrow">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="activity">
+                    <div class="activity-title">Travel Tips</div>
+                    <ul>
+                        <li>Keep your passport handy for hotel check-ins</li>
+                        <li>Remember to drive on the left side of the road</li>
+                        <li>Most restaurants accept credit cards, but carry some cash</li>
+                        <li>Weather can change quickly - pack layers and rain gear</li>
+                    </ul>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-title">Emergency Contacts</div>
+                    <ul>
+                        <li>Kim's 24/7 Travel Support: [Number in final document]</li>
+                        <li>Local Emergency: 112 or 999</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.querySelectorAll('.section-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    header.classList.toggle('active');
+                    content.classList.toggle('active');
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
