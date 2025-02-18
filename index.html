@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somo Travel - Kim Henderson</title>
+    <style>
+        :root {
+            --primary-color: #00b140;
+            --secondary-color: #004d1a;
+            --accent-color: #0056b3;
+            --background-color: #ffffff;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+            --card-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .logo {
+            max-width: 300px;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .contact-info h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info h2 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .contact-details {
+            margin: 1rem 0;
+        }
+
+        .contact-details a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        .trips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .trip-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .trip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .trip-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .trip-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .trip-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: #E8F5E9;
+            color: var(--primary-color);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .trips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="contact-info">
+                <h1>Kim Henderson</h1>
+                <h2>Cruise & Tour Specialist</h2>
+                <div class="contact-details">
+                    Associate of Susie & Brad Jones<br>
+                    A Cruise Planners® Independent Franchise Owner<br>
+                    <strong>t.</strong> <a href="tel:251-289-1505">251-289-1505</a><br>
+                    <strong>e.</strong> <a href="mailto:kim.henderson@cruiseplanners.com">kim.henderson@cruiseplanners.com</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="trips-grid">
+            <a href="caribbean-cruise-2024.html" class="trip-card">
+                <div class="trip-title">Caribbean Cruise Adventure</div>
+                <div class="trip-date">June 15-25, 2024</div>
+                <div class="trip-status">Upcoming</div>
+            </a>
+
+            <a href="mediterranean-2024.html" class="trip-card">
+                <div class="trip-title">Mediterranean Odyssey</div>
+                <div class="trip-date">July 1-15, 2024</div>
+                <div class="trip-status">Planning</div>
+            </a>
+
+            <a href="alaska-expedition.html" class="trip-card">
+                <div class="trip-title">Alaska Expedition</div>
+                <div class="trip-date">August 5-15, 2024</div>
+                <div class="trip-status">Planning</div>
+            </a>
+
+            <a href="european-river-cruise.html" class="trip-card">
+                <div class="trip-title">European River Cruise</div>
+                <div class="trip-date">September 10-24, 2024</div>
+                <div class="trip-status">Planning</div>
+            </a>
+
+            <a href="hawaii-cruise.html" class="trip-card">
+                <div class="trip-title">Hawaiian Island Hopping</div>
+                <div class="trip-date">October 1-12, 2024</div>
+                <div class="trip-status">Planning</div>
+            </a>
+        </main>
+
+        <footer class="footer">
+            <p>Contact Kim Henderson for personalized cruise and travel planning</p>
+        </footer>
+    </div>
+</body>
+</html>
